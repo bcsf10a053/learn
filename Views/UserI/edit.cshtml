@@ -1,0 +1,105 @@
+@model LearnCenter.Models.signup
+@{
+Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Learn Center | SignUp</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="~/Content/reset.css" type="text/css" media="all">
+<link rel="stylesheet" href="~/Content/layout.css" type="text/css" media="all">
+<link rel="stylesheet" href="~/Content/style.css" type="text/css" media="all">
+<script type="text/javascript" src="~/Scripts/jquery-1.5.2.js" ></script>
+<script type="text/javascript" src="~/Scripts/cufon-yui.js"></script>
+<script type="text/javascript" src="~/Scripts/cufon-replace.js"></script>
+<script type="text/javascript" src="~/Scripts/Molengo_400.font.js"></script>
+<script type="text/javascript" src="~/Scripts/Expletus_Sans_400.font.js"></script>
+<link href="../../Content/bootstrap.css" rel="stylesheet" />
+
+<script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+
+<!--[if lt IE 9]>
+<script type="text/javascript" src="js/html5.js"></script>
+<style type="text/css">.bg, .box2{behavior:url("js/PIE.htc");}</style>
+<![endif]-->
+@Scripts.Render("~/bundles/jquery")
+     <script type="text/javascript">
+         function f1() {
+             $.ajax({
+                 type: 'POST', url: '/UserI/esave', data: $('#ContactForm').serialize(),
+                 success: function (x) {
+                     $('#d1').text(x);
+                 },
+                 error: function () {
+                     alert('some error');
+                 }
+             });
+
+             return false;
+         }
+      
+function check(input) {
+    if (input.value != document.getElementById('helo').value) {
+        input.setCustomValidity('The two passwords must match.');
+    } else {
+        // input is valid -- reset the error message
+        input.setCustomValidity('');
+    }
+}
+
+   </script>
+</head>
+<body id="page5">
+
+<div class="body2">
+  <div class="main">
+    <!-- content -->
+    <section id="content">
+      <p id="d1">&nbsp;</p>
+       
+      <table width="664" border="0">
+        <tr>
+          <td><div class="container" id="wrap">
+	  <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <form id="ContactForm" onsubmit="return f1();" method="post" accept-charset="utf-8" class="form" role="form">   <legend>Sign Up</legend>
+                   
+                    <div class="row">
+                        <div class="col-xs-6 col-md-6">
+                            <input type="text" name="fname" value="@Model.fname" class="form-control input-lg"   />                        </div>
+                        <div class="col-xs-6 col-md-6">
+                            <input type="text" name="lname" value="@Model.lname" class="form-control input-lg"   />                        </div>
+                    </div>
+                 <input id="helo" type="password" name="password" value="@Model.password" class="form-control input-lg"  />
+                <input id="" type="password" name="password" value="@Model.password" class="form-control input-lg" required="" oninput="check(this)" />
+                
+                  <div class="row">
+      <div class="col-xs-4 col-md-4"></div>
+                        <div class="col-xs-4 col-md-4"></div>
+                        <div class="col-xs-4 col-md-4"></div>
+                  </div>
+                  <button class="btn btn-lg btn-primary btn-block signup-btn" type="submit">
+                        Save Changes</button>
+            </form>          
+          </div>
+</div>            
+</div>
+</div>&nbsp;</td>
+        </tr>
+        <tr>
+          <td width="658">&nbsp;
+  
+</td>
+        </tr>
+      </table>
+   <p>&nbsp;</p>
+    
+
+
+  </section>
+        <!-- content -->
+     </div>
+</div>
+</html>

@@ -1,0 +1,141 @@
+@{
+Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<title>Learn Center | SignUp</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="~/Content/reset.css" type="text/css" media="all">
+<link rel="stylesheet" href="~/Content/layout.css" type="text/css" media="all">
+<link rel="stylesheet" href="~/Content/style.css" type="text/css" media="all">
+<script type="text/javascript" src="~/Scripts/jquery-1.5.2.js" ></script>
+<script type="text/javascript" src="~/Scripts/cufon-yui.js"></script>
+<script type="text/javascript" src="~/Scripts/cufon-replace.js"></script>
+<script type="text/javascript" src="~/Scripts/Molengo_400.font.js"></script>
+<script type="text/javascript" src="~/Scripts/Expletus_Sans_400.font.js"></script>
+<link href="../../Content/bootstrap.css" rel="stylesheet" />
+
+<script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+
+<!--[if lt IE 9]>
+<script type="text/javascript" src="js/html5.js"></script>
+<style type="text/css">.bg, .box2{behavior:url("js/PIE.htc");}</style>
+<![endif]-->
+    <script>
+        $(function () {
+            $('.button-checkbox').each(function () {
+                var $widget = $(this),
+                    $button = $widget.find('button'),
+                    $checkbox = $widget.find('input:checkbox'),
+                    color = $button.data('color'),
+                    settings = {
+                        on: {
+                            icon: 'glyphicon glyphicon-check'
+                        },
+                        off: {
+                            icon: 'glyphicon glyphicon-unchecked'
+                        }
+                    };
+
+                $button.on('click', function () {
+                    $checkbox.prop('checked', !$checkbox.is(':checked'));
+                    $checkbox.triggerHandler('change');
+                    updateDisplay();
+                });
+
+                $checkbox.on('change', function () {
+                    updateDisplay();
+                });
+
+                function updateDisplay() {
+                    var isChecked = $checkbox.is(':checked');
+                    // Set the button's state
+                    $button.data('state', (isChecked) ? "on" : "off");
+
+                    // Set the button's icon
+                    $button.find('.state-icon')
+                        .removeClass()
+                        .addClass('state-icon ' + settings[$button.data('state')].icon);
+
+                    // Update the button's color
+                    if (isChecked) {
+                        $button
+                            .removeClass('btn-default')
+                            .addClass('btn-' + color + ' active');
+                    }
+                    else {
+                        $button
+                            .removeClass('btn-' + color + ' active')
+                            .addClass('btn-default');
+                    }
+                }
+                function init() {
+                    updateDisplay();
+                    // Inject the icon if applicable
+                    if ($button.find('.state-icon').length == 0) {
+                        $button.prepend('<i class="state-icon ' + settings[$button.data('state')].icon + '"></i> ');
+                    }
+                }
+                init();
+            });
+        });
+    </script>
+
+
+<div class="body2">
+  <div class="main">
+    <!-- content -->
+    <section id="content">
+      <p id="d1">&nbsp;</p>
+       
+      <table width="664" border="0">
+        <tr>
+          <td><div class="container">
+
+<div class="row" style="margin-top:20px">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+		<form  action="/UserI/log" method="post" role="form">
+			<fieldset>
+				<h2>Please Login</h2>
+				<hr class="colorgraph">
+				<div class="form-group">
+                    <input type="email" name="username" id="email" class="form-control input-lg" placeholder="Email Address" require="">
+				</div>
+				<div class="form-group">
+                    <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" required="">
+				</div>
+				
+				<hr class="colorgraph">
+				<div class="row">
+					<div class="col-xs-6 col-sm-6 col-md-6">
+                        <input name="signin" type="submit" class="btn btn-lg btn-success btn-block" value="Login">
+					</div>
+					<div class="col-xs-6 col-sm-6 col-md-6">
+						<a href="~/UserI/signup" class="btn btn-lg btn-primary btn-block">Register</a>
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</div>
+
+</div>          
+          </div>
+</div>            
+</div>
+</div>&nbsp;</td>
+        </tr>
+        <tr>
+          <td width="658">&nbsp;
+  
+</td>
+        </tr>
+      </table>
+   <p>&nbsp;</p>
+    
+
+
+  </section>
+        <!-- content -->
+     </div>
+</div>
+</html>
